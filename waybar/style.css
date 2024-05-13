@@ -1,0 +1,80 @@
+/**
+ * waybar style
+ */
+
+@define-color detail-color      #fdf6e3;
+@define-color foreground-color  #1a1a1a;
+@define-color background-color  #292b2e;
+
+* {
+	font-size: 12px;
+	font-family: "Source Code Pro", monospace;
+	border-color: transparent;
+}
+window#waybar {
+	background: @background-color;
+	color: @detail-color;
+}
+
+#custom-right-arrow-foreground,
+#custom-right-arrow-background,
+#custom-left-arrow-foreground,
+#custom-left-arrow-background {
+	font-size: 14px;
+}
+#custom-right-arrow-foreground,
+#custom-left-arrow-foreground {
+	color: @foreground-color;
+}
+#custom-right-arrow-background,
+#custom-left-arrow-background {
+	color: @background-color;
+	background: @foreground-color;
+}
+
+#workspaces {
+	background: @foreground-color;
+}
+#workspaces button {
+	padding: 0 2px;
+	color: @detail-color;
+}
+#workspaces button.active {
+	color: @background-color;
+	background: @detail-color;
+	border-radius: 24px;
+}
+#workspaces button:hover {
+	border: @detail-color;
+	border-radius: 24px;
+}
+
+#custom-media,
+#clock,
+#network,
+#pulseaudio,
+#memory,
+#cpu,
+#tray {
+	background: @foreground-color;
+	padding: 0 12px;
+}
+
+#custom-media {
+	color: #a3da11
+}
+#network {
+	color: #268bd2;
+}
+#pulseaudio.output {
+	color: #b58900;
+}
+#pulseaudio.input {
+	color: #7362c0;
+}
+#memory {
+	color: #28a068;
+}
+#cpu {
+	color: #cf4444;
+}

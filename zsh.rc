@@ -1,0 +1,75 @@
+pfetch
+
+# git status
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+vcs_formats='(%b%u%c) '
+vcs_actionformats='(%b|%a%u%c) '
+#vcs_formats=' %b%u%c '
+#vcs_actionformats=' %b|%a %u%c '
+zstyle ':vcs_info:git:*' formats       $vcs_formats
+zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
+
+# prompt string 1
+USER_COLOR=cyan
+FILL_COLOR=white
+GIT_COLOR=yellow
+if [ "$USER" != "root" ]; then
+	# If the user is not root, use the normal prompt string
+	PS1='%B%F{'$USER_COLOR'}%n%f %F{'$FILL_COLOR'}%(1~|%1~|%~)%f%b %F{'$GIT_COLOR'}${vcs_info_msg_0_}%f%B%F{'$USER_COLOR'}%%%f%b '
+else
+	# If the user is root, use a root-specific prompt string
+	USER_COLOR=red
+	PS1='%B%F{'$USER_COLOR'}%m%f %F{'$FILL_COLOR'}%(3~|.../%2~|%~)%f%b %F{'$GIT_COLOR'}${vcs_info_msg_0_}%f%B%F{'$USER_COLOR'}#%f%b '
+fi
+
+# prompt string 2
+PS2='%B%F{'$USER_COLOR'}>%f%b'
+
+# basic auto-complete
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+# bash-like word selection
+autoload -U select-word-style
+select-word-style bash
+
+# key binds
+bindkey -e	# emacs mode
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[3~' delete-char
+
+# environment variables
+export EDITOR=nvim
+export VISUAL=nvim
+export TERM=xterm-256color
+export HISTCONTROL=ignoreboth # ignore duplicate entries in history
+export HISTFILE=~/.histfile
+export HISTSIZE=500
+export SAVEHIST=500
+
+# beam-style cursor
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
+
+# aliases
+alias ls='ls --color=auto -C'
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ytdlp='yt-dlp'

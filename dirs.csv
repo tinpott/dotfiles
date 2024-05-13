@@ -1,0 +1,5 @@
+alacritty, alacritty/, ~/.config/alacritty/
+hypr,      hypr/,      ~/.config/hypr/
+neovim,    neovim/,    ~/.config/nvim/
+waybar,    waybar/,    ~/.config/waybar/
+zsh,       zsh.rc,     ~/.zshrc
