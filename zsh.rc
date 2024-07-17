@@ -1,5 +1,3 @@
-pfetch
-
 # git status
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
@@ -15,7 +13,7 @@ zstyle ':vcs_info:git:*' formats       $vcs_formats
 zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 # prompt string 1
-USER_COLOR=cyan
+USER_COLOR=yellow
 FILL_COLOR=white
 GIT_COLOR=yellow
 if [ "$USER" != "root" ]; then
@@ -64,12 +62,19 @@ _fix_cursor() {
 }
 precmd_functions+=(_fix_cursor)
 
+# syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # aliases
 alias ls='ls --color=auto -C'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
-alias grep='grep --color=auto'
+
 alias diff='diff --color=auto'
+alias grep='grep --color=auto'
 alias ytdlp='yt-dlp'
+alias grps='groups | sed "s/ /\n/g" | sort'
+alias g='git'
+

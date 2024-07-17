@@ -1,5 +1,9 @@
 alacritty, alacritty/, ~/.config/alacritty/
+awesome,   awesome/,   ~/.config/awesome/
 hypr,      hypr/,      ~/.config/hypr/
+fastfetch, fastfetch,  ~/.config/fastfetch/
+joplin,    joplin/,    ~/.config/joplin/
 neovim,    neovim/,    ~/.config/nvim/
+ranger,    ranger/,    ~/.config/ranger/
 waybar,    waybar/,    ~/.config/waybar/
 zsh,       zsh.rc,     ~/.zshrc
