@@ -1,4 +1,5 @@
-# git status
+### git status
+
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 add-zsh-hook precmd vcs_info
@@ -12,7 +13,9 @@ vcs_actionformats='(%b|%a%u%c) '
 zstyle ':vcs_info:git:*' formats       $vcs_formats
 zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
-# prompt string 1
+
+### prompt string 1
+
 USER_COLOR=cyan
 FILL_COLOR=white
 GIT_COLOR=yellow
@@ -25,7 +28,9 @@ PS_PWD='%B%F{'$FILL_COLOR'}%(1~|%1~|%~)%f%b'
 PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f'
 PS_END='%B%F{'$USER_COLOR'}%%%f%b'
 
-# vim mode indicator - https://dougblack.io/words/zsh-vi-mode.html
+
+### vim mode indicator - https://dougblack.io/words/zsh-vi-mode.html
+
 function zle-line-init zle-keymap-select {
 	PS_VI="?"
 	case $KEYMAP in
@@ -49,9 +54,9 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
-# prompt string 2
 
-# basic auto-complete
+### basic auto-complete
+
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -70,7 +75,8 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[3~' delete-char
 
-# environment variables
+
+### environment variables
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=xterm-256color
@@ -80,16 +86,24 @@ export HISTSIZE=500
 export SAVEHIST=500
 export PATH="$HOME/.scripts/:$PATH"
 
-# beam-style cursor
+
+### beam-style cursor
+
 #_fix_cursor() {
 #   echo -ne '\e[5 q'
 #}
 #precmd_functions+=(_fix_cursor)
 
-# syntax highlighting
+
+### syntax highlighting
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# aliases
+
+### aliases
+
 alias ls='ls --color=auto -C --group-directories-first'
 alias l='ls'
 alias ll='ls -l'
@@ -97,8 +111,8 @@ alias la='ls -a'
 alias lla='ls -la'
 
 alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ytdlp='yt-dlp'
-alias grps='groups | sed "s/ /\n/g" | sort'
+alias c='clear'
 alias g='git'
-
+alias grep='grep --color=auto'
+alias grps='groups | sed "s/ /\n/g" | sort'
+alias v='nvim'
