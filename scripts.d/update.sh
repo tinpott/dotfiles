@@ -1,21 +1,18 @@
 #!/bin/bash
 
-echo '####################################'
-echo '# Updating packages from neovim... #'
-echo '####################################'
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+set -e
 
-echo '##################################'
-echo '# Updating packages from snap... #'
-echo '##################################'
-snap refresh
+banner() {
+	STR="Updating packages from $1..."
+	echo -e "\n*** $STR ***\n"
+}
 
-echo '#####################################'
-echo '# Updating packages from flatpak... #'
-echo '#####################################'
+banner "snap"
+sudo snap refresh
+
+banner "flatpak"
 flatpak update
 
-echo '####################################################'
-echo '# Updating packages from Arch repos and the AUR... #'
-echo '####################################################'
-yay -Syu --needed
+banner "Arch repos and the AUR"
+yay --needed
+
