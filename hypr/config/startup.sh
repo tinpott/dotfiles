@@ -12,11 +12,13 @@ hyprpaper &
 hypridle & 
 
 # media
-noisetorch -i &
+easyeffects --gapplication-service &
+wpctl set-default 159 &
 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50% &
 wpctl set-volume @DEFAULT_AUDIO_SINK@   50% &
 wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ 1 & # mute mic
 wpctl set-mute   @DEFAULT_AUDIO_SINK@   0 & # unmute speakers/headphones
+~/.scripts/camera.sh &
 
 # user
 steam &
