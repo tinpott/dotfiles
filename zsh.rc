@@ -16,7 +16,7 @@ zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 ### prompt string 1
 
-USER_COLOR=cyan
+USER_COLOR=green
 FILL_COLOR=white
 GIT_COLOR=yellow
 if [ "$USER" = "root" ]; then
@@ -74,6 +74,7 @@ bindkey '^[[F' end-of-line
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[3~' delete-char
+bindkey '^R' history-incremental-search-backward
 
 
 ### environment variables
@@ -113,6 +114,7 @@ alias lla='ls -la'
 alias diff='diff --color=auto'
 alias c='clear'
 alias g='git'
+alias glog='git log'
 alias grep='grep --color=auto'
 alias grps='groups | sed "s/ /\n/g" | sort'
 alias v='nvim'
