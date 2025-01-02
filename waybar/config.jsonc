@@ -5,23 +5,22 @@
 	"position": "top",
 
 	"modules-left": [
-		                                 "hyprland/workspaces", "custom/right-arrow-foreground",
-		"custom/right-arrow-background", "hyprland/window",     "custom/right-arrow-foreground"
+		"hyprland/workspaces",
+		"tray",
+		"custom/media"
 	],
 	"modules-center": [
-		"custom/left-arrow-foreground",  "clock#day",  "custom/left-arrow-background",
-		"custom/left-arrow-foreground",  "clock#date", "custom/right-arrow-foreground",
-		"custom/right-arrow-background", "clock#time", "custom/right-arrow-foreground"
+		"hyprland/window",
 	],
 	"modules-right": [
-//		"custom/left-arrow-foreground", "custom/media",      "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "cpu",               "custom/left-arrow-background",
-//		"custom/left-arrow-foreground", "custom/gpu",        "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "memory",            "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "network",           "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "pulseaudio#output", "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "pulseaudio#input",  "custom/left-arrow-background",
-		"custom/left-arrow-foreground", "tray"
+		"custom/gpu",
+		"cpu",
+		"memory",
+		"network",
+		"pulseaudio#output",
+		"pulseaudio#input",
+		"clock#date",
+		"clock#time"
 	],
 
 	"hyprland/workspaces": {
@@ -33,17 +32,13 @@
 		"max-length": 30
 	},
 
-	"clock#day": {
-		"format": "{:%a}",
-		"tooltip": false
-	},
 	"clock#time": {
-		"format": "{:%I:%M %p}",
+		"format": " {:%I:%M %p}",
 		"tooltip": false
 	},
 	"clock#date": {
-		"format":     "{:%d %h %Y}",
-		"format-alt": "{:%d %h %Y (week %U)}",
+//		"format": " {:%a, %d %h %Y}",
+		"format": " {:%h %d (%a)}",
 		"tooltip": false
 	},
 
@@ -59,6 +54,30 @@
 		"tooltip-format-disconnected": " No connection"
 	},
 
+	/* media */
+	"custom/media": {
+		"on-click":       "~/.scripts/media.sh toggle",
+		"on-scroll-up":   "~/.scripts/media.sh prev",
+		"on-scroll-down": "~/.scripts/media.sh next",
+
+		"exec": "~/.config/waybar/mediaplayer.py 2> /dev/null",
+
+		"max-length": 30,
+		"return-type": "json",
+		"escape": true,
+		"format": "{}"
+	},
+	"pulseaudio#input": {
+		"on-click":       "~/.scripts/audio.sh source toggle",
+		"on-scroll-up":   "~/.scripts/audio.sh source inc",
+		"on-scroll-down": "~/.scripts/audio.sh source dec",
+
+		"on-click-middle": "pavucontrol -t 4",
+
+		"format":              "{format_source}",
+		"format-source":       " {volume:2}%",
+		"format-source-muted": "  ({volume:2}%)"
+	},
 	"pulseaudio#output": {
 		"on-click":       "~/.scripts/audio.sh sink toggle",
 		"on-scroll-up":   "~/.scripts/audio.sh sink inc",
@@ -76,18 +95,15 @@
 			]
 		}
 	},
-	"pulseaudio#input": {
-		"on-click":       "~/.scripts/audio.sh source toggle",
-		"on-scroll-up":   "~/.scripts/audio.sh source inc",
-		"on-scroll-down": "~/.scripts/audio.sh source dec",
 
-		"on-click-middle": "pavucontrol -t 4",
-
-		"format":              "{format_source}",
-		"format-source":       " {volume:2}%",
-		"format-source-muted": "  ({volume:2}%)"
+	/* performance */
+	"custom/gpu": {
+		"interval": 5,
+		"return-type": "",
+		"exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
+		"format": "󰢮 {}%",
+		"tooltip": false
 	},
-
 	"memory": {
 		"interval": 5,
 
@@ -98,44 +114,6 @@
 	"cpu": {
 		"interval": 5,
 		"format": " {usage:2}%"
-	},
-
-	"custom/media": {
-		"on-click":       "~/.scripts/media.sh toggle",
-		"on-scroll-up":   "~/.scripts/media.sh prev",
-		"on-scroll-down": "~/.scripts/media.sh next",
-
-		"exec": "~/.config/waybar/mediaplayer.py 2> /dev/null",
-
-		"max-length": 30,
-		"return-type": "json",
-		"escape": true,
-		"format": "{}"
-	},
-
-	"custom/gpu": {
-		"interval": 5,
-		"return-type": "",
-		"exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
-		"format": "󰢮 {}%",
-		"tooltip": false
-	},
-
-	"custom/right-arrow-foreground": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-background": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/left-arrow-foreground": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/left-arrow-background": {
-		"format": "",
-		"tooltip": false
 	}
 }
 

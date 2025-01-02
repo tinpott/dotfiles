@@ -1,7 +1,3 @@
-/**
- * waybar style
- */
-
 @define-color detail-color      #fdf6e3;
 @define-color foreground-color  #1a1a1a;
 @define-color background-color  #292b2e;
@@ -14,22 +10,6 @@
 window#waybar {
 	background: @background-color;
 	color: @detail-color;
-}
-/*
-#custom-right-arrow-foreground,
-#custom-right-arrow-background,
-#custom-left-arrow-foreground,
-#custom-left-arrow-background {
-	font-size: 14px;
-}*/
-#custom-right-arrow-foreground,
-#custom-left-arrow-foreground {
-	color: @foreground-color;
-}
-#custom-right-arrow-background,
-#custom-left-arrow-background {
-	color: @background-color;
-	background: @foreground-color;
 }
 
 #workspaces {
@@ -50,36 +30,49 @@ window#waybar {
 }
 
 #window,
-#custom-media,
 #clock,
-#network,
-#pulseaudio,
-#memory,
-#cpu,
-#custom-gpu,
 #tray {
 	background: @foreground-color;
 	padding: 0 12px;
 }
 
-#custom-media {
-	color: #a3da11
-}
 #network {
 	color: #268bd2;
+	background: @foreground-color;
+	padding: 0 12px;
 }
-#pulseaudio.output {
-	color: #7362c0;
+
+/* media */
+#custom-media {
+	color: #a3da11;
+	background: @foreground-color;
+	padding: 0 12px;
 }
 #pulseaudio.input {
 	color: #ff99cc;
+	background: @foreground-color;
+	padding: 0 12px;
 }
+#pulseaudio.output {
+	color: #7362c0;
+	background: @foreground-color;
+	padding: 0 12px;
+}
+
+/* performance */
 #memory {
 	color: #28a068;
+	background: @foreground-color;
+	padding: 0 12px;
 }
 #cpu {
 	color: #cf4444;
+	background: @foreground-color;
+	padding: 0 12px;
 }
 #custom-gpu {
 	color: #b58900;
+	background: @foreground-color;
+	padding: 0 12px;
 }
+
