@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.cursorline = true
 
 vim.opt.tabstop = 4
@@ -37,6 +37,21 @@ vim.opt.autoindent = true
 vim.opt.mouse = "n"
 
 vim.opt.termguicolors = true
+
+local space = "·"
+vim.opt.listchars = {
+	-- whitespace
+	trail = space,
+	lead = space,
+	multispace = space,
+	tab = "» ",
+	nbsp = "␣",
+
+	-- wrap
+	extends = "❱",
+	precedes = "❰",
+}
+vim.opt.list = true
 
 
 --
@@ -53,20 +68,31 @@ require("lazy").setup({
 				vim.cmd([[colorscheme tokyonight]])
 			end,
 		},
-		--{
-		--	"akinsho/toggleterm.nvim",
-		--	version = "*",
-		--	opts = {
-		--		size = 20,
-		--		open_mapping = [[<c-`>]],
-		--		shell = vim.o.shell,
-		--		autoscroll = true,
-		--		direction = "horizontal",
-		--		shade_terminals = true,
-		--		shading_factor = "25"
-		--	}
-		--},
+		{
+			"MeanderingProgrammer/render-markdown.nvim",
+--			dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+--		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+--		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+			---@module "render-markdown"
+			---@type render.md.UserConfig
+			opts = {},
+		},
+--		{
+--			"akinsho/toggleterm.nvim",
+--			version = "*",
+--			opts = {
+--				size = 20,
+--				open_mapping = [[<c-`>]],
+--				shell = vim.o.shell,
+--				autoscroll = true,
+--				direction = "horizontal",
+--				shade_terminals = true,
+--				shading_factor = "25"
+--			}
+--		},
 	},
 	checker = { enabled = true }, -- automatically check for updates
 })
+
+--require("render-markdown").
 
