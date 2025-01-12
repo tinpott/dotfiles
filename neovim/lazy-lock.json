@@ -1,7 +1,6 @@
 {
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
-  "mini.nvim": { "branch": "main", "commit": "3a3178419ce9947f55708966dabf030eca40735a" },
-  "nvim-treesitter": { "branch": "master", "commit": "29f96aafe1ec99f464732b4586af53d2953345bb" },
-  "render-markdown.nvim": { "branch": "main", "commit": "d7b646f2e6136d963e1bd3abbb9e2ac3fa90837a" },
-  "tokyonight.nvim": { "branch": "main", "commit": "775f82f08a3d1fb55a37fc6d3a4ab10cd7ed8a10" }
+  "monokai-pro.nvim": { "branch": "master", "commit": "6c15e36834a624a32f46c6db8f9fc063995b24b6" },
+  "nvim-autopairs": { "branch": "master", "commit": "3d02855468f94bf435db41b661b58ec4f48a06b7" },
+  "render-markdown.nvim": { "branch": "main", "commit": "d7b646f2e6136d963e1bd3abbb9e2ac3fa90837a" }
 }
