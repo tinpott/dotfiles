@@ -49,21 +49,32 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- `opts = {}` for each plugin is equivalent to `setup({})`
 require("lazy").setup({
 	spec = {
---		{
---			"akinsho/toggleterm.nvim",
---			version = "*",
---			opts = {
---				size = 20,
---				open_mapping = [[<c-`>]],
---				shell = vim.o.shell,
---				autoscroll = true,
---				direction = "horizontal",
---				shade_terminals = true,
---				shading_factor = "25"
---			}
---		},
+		{
+			"akinsho/toggleterm.nvim",
+			version = "*",
+			opts = {
+				size = 20,
+				open_mapping = [[<C-`>]],
+				shell = vim.o.shell,
+				autoscroll = true,
+				direction = "horizontal",
+				shade_terminals = true,
+				shading_factor = "25"
+			}
+		},
+		{
+			"nvim-treesitter/nvim-treesitter",
+			opts = {
+				ensure_installed = {
+					"bash", "gdscript", "lua", "python", "javascript",
+					"c", "cpp",
+					"csv", "diff", "markdown", "markdown_inline", "vim", "vimdoc",
+				}
+			}
+		},
 		{
 			"MeanderingProgrammer/render-markdown.nvim",
 --			dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
@@ -77,10 +88,7 @@ require("lazy").setup({
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = true
-			-- use opts = {} for passing setup options
-			-- this is equivalent to setup({}) function
 		},
-
 		-- color scheme <https://www.lazyvim.org/plugins/colorscheme>
 		{
 			"loctvl842/monokai-pro.nvim",
@@ -95,6 +103,4 @@ require("lazy").setup({
 	},
 	checker = { enabled = true }, -- automatically check for updates
 })
-
---require("render-markdown").
 
