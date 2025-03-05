@@ -87,6 +87,13 @@ export HISTSIZE=500
 export SAVEHIST=500
 export PATH="$HOME/.scripts/:$PATH"
 
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
 
 ### beam-style cursor
 
@@ -113,6 +120,7 @@ alias lla='ls -la'
 
 alias diff='diff --color=auto'
 alias c='clear'
+alias ccat='pygmentize -g'
 alias g='git'
 alias glog='git log --oneline'
 alias grep='grep --color=auto'
