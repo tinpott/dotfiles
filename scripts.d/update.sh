@@ -2,17 +2,23 @@
 
 set -e
 
-banner() {
-	STR="Updating packages from $1..."
-	echo -e "\n*** $STR ***\n"
+print_banner() {
+	CHAR="="
+	REGEX="s/./$CHAR/g"
+	LINE="$CHAR $1 $CHAR"
+	echo ""
+	echo ""
+	echo $LINE | sed $REGEX
+	echo $LINE
+	echo $LINE | sed $REGEX
+	echo ""
 }
 
-banner "snap"
-sudo snap refresh
+# no need for `sudo snap refresh` because snapd should keep snaps automatically up-to-date
 
-banner "flatpak"
+print_banner "flatpak"
 flatpak update
 
-banner "Arch repos and the AUR"
+print_banner "Arch repos and the AUR"
 yay --needed
 
