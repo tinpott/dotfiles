@@ -5,14 +5,15 @@
 #$HOME/proj/dotfiles/hypr/config/wallpaper.py
 
 # system
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & 
-waybar & 
-swaync & 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+waybar &
+swaync &
+nm-applet &
 hyprpaper &
-hypridle & 
+hypridle &
 
 # media
-easyeffects --gapplication-service &
+noisetorch -i &
 wpctl set-default 159 &
 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50% &
 wpctl set-volume @DEFAULT_AUDIO_SINK@   50% &
