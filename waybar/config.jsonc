@@ -5,27 +5,27 @@
 	"position": "top",
 
 	"modules-left": [
-		"hyprland/workspaces",
-		"tray"/*,
-		"custom/media"*/
+		"clock#date",
+		"clock#time",
+		"hyprland/workspaces"
+//		"custom/media"
 	],
 	"modules-center": [
 		"hyprland/window"
 	],
 	"modules-right": [
+		"tray",
 		"custom/gpu",
 		"cpu",
 		"memory",
 		"pulseaudio#output",
 		"pulseaudio#input",
-		"network",
-		"clock#date",
-		"clock#time"
+		"network"
 	],
 
 	"hyprland/workspaces": {
 		"disable-scroll": true,
-		"format": "{name}"
+		"format": "  {name} "
 	},
 
 	"hyprland/window": {
@@ -44,13 +44,13 @@
 	"network": {
 		"on-click": "nm-connection-editor",
 
-		"format":          " {ifname}",
-		"format-ethernet": " {ifname}",
-		"format-wifi":     " {essid} ({signalStrength}%)",
-		"tooltip-format":  " {ifname} as {ipaddr} via {gwaddr}",
+		"format":          "  {ifname}",
+		"format-ethernet": "  {ifname}",
+		"format-wifi":     "  {essid} ({signalStrength}%)",
+		"tooltip-format":  "  {ifname} as {ipaddr} via {gwaddr}",
 
-		"format-disconnected":         " No connection",
-		"tooltip-format-disconnected": " No connection"
+		"format-disconnected":         "  Offline",
+		"tooltip-format-disconnected": "  Offline"
 	},
 
 	/* media */
@@ -74,8 +74,8 @@
 		"on-click-middle": "pavucontrol -t 4",
 
 		"format":              "{format_source}",
-		"format-source":       "  {volume:2}% ",
-		"format-source-muted": " ({volume:2}%)"
+		"format-source":       " {volume:2}%",
+		"format-source-muted": " {volume:2}%"
 	},
 	"pulseaudio#output": {
 		"on-click":       "~/.scripts/audio.sh sink toggle",
@@ -84,8 +84,8 @@
 
 		"on-click-middle": "pavucontrol -t 3",
 
-		"format":       "{icon}  {volume:2}% ",
-		"format-muted": " ({volume:2}%)",
+		"format":       "{icon} {volume:2}%",
+		"format-muted":      " {volume:2}%",
 		"format-icons": {
 //			"headphones": "",
 			"default": [
