@@ -16,7 +16,7 @@ zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 ### prompt string 1
 
-USER_COLOR=green
+USER_COLOR=cyan
 FILL_COLOR=white
 GIT_COLOR=yellow
 if [ "$USER" = "root" ]; then
@@ -120,7 +120,7 @@ alias lla='ls -la'
 
 alias diff='diff --color=auto'
 alias c='clear'
-alias ccat='pygmentize -g'
+alias ccat='pygmentize -g -O style=monokai'
 alias g='git'
 alias glog='git log --oneline'
 alias grep='grep --color=auto'
