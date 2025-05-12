@@ -28,6 +28,8 @@ vim.opt.listchars = {
 }
 vim.opt.list = true
 
+vim.g.markdown_recommended_style = 0
+
 
 --
 -- plugins with lazy.nvim
