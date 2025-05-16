@@ -30,6 +30,25 @@ vim.opt.list = true
 
 vim.g.markdown_recommended_style = 0
 
+vim.lsp.enable("clangd")
+vim.lsp.config.clangd = {
+	cmd = {
+		"clangd",
+		"--clang-tidy",
+		"--background-index",
+		"--offset-encoding=utf-8",
+	},
+	root_markers = {
+		".clangd",
+		"compile_commands.json",
+	},
+	filetypes = {
+		"c",
+		"cpp",
+		"cc",
+	},
+}
+
 
 --
 -- plugins with lazy.nvim
@@ -90,6 +109,40 @@ require("lazy").setup({
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = true
+		},
+		{
+			"lewis6991/gitsigns.nvim",
+			opts = {
+				current_line_blame = true
+			}
+		},
+		{
+			"folke/todo-comments.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim"
+			},
+			opts = {
+				signs = false
+			}
+		},
+		{
+			"nvim-neo-tree/neo-tree.nvim",
+--			branch = "v3.x",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
+--				{
+--					"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+--					opts = {
+--					},
+--				},
+			},
+			lazy = false,
+			---@module "neo-tree"
+			---@type neotree.Config?
+			opts = {
+			},
 		},
 		-- color scheme <https://www.lazyvim.org/plugins/colorscheme>
 		{
