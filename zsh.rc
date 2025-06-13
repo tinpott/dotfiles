@@ -1,3 +1,5 @@
+USE_SYMBOLS=true
+
 ### git status
 
 autoload -Uz add-zsh-hook vcs_info
@@ -6,10 +8,13 @@ add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
-vcs_formats='(%b%u%c) '
-vcs_actionformats='(%b|%a%u%c) '
-#vcs_formats=' %b%u%c '
-#vcs_actionformats=' %b|%a %u%c '
+if [ $USE_SYMBOLS = true ]; then
+	      vcs_formats=" %b%u%c "
+	vcs_actionformats=" %b|%a %u%c "
+else
+	      vcs_formats="(%b%u%c) "
+	vcs_actionformats="(%b|%a %u%c) "
+fi
 zstyle ':vcs_info:git:*' formats       $vcs_formats
 zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
@@ -107,7 +112,7 @@ setopt HIST_SAVE_NO_DUPS
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ### aliases
