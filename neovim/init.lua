@@ -30,6 +30,22 @@ vim.opt.list = true
 
 vim.g.markdown_recommended_style = 0
 
+vim.api.nvim_create_autocmd({"InsertEnter"}, {
+	pattern = "*",
+	callback = function()
+		vim.wo.relativenumber = false
+		vim.wo.number = true
+	end
+})
+
+vim.api.nvim_create_autocmd({"InsertLeave"}, {
+	pattern = "*",
+	callback = function()
+		vim.wo.relativenumber = true
+		vim.wo.number = true
+	end
+})
+
 vim.lsp.enable("clangd")
 vim.lsp.config.clangd = {
 	cmd = {
@@ -142,6 +158,10 @@ require("lazy").setup({
 			---@module "neo-tree"
 			---@type neotree.Config?
 			opts = {
+				update_focused_file = {
+					enable = true,
+					update_cwd = true,
+				},
 			},
 		},
 		-- color scheme <https://www.lazyvim.org/plugins/colorscheme>
@@ -156,6 +176,9 @@ require("lazy").setup({
 			}
 		},
 	},
-	checker = { enabled = true }, -- automatically check for updates
+	checker = {
+		enabled = true, -- Automatically check for updates
+		notify = false, -- But don't show the popup/notification
+	},
 })
 
