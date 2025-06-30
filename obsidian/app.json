@@ -1,0 +1,11 @@
+{
+  "vimMode": true,
+  "showLineNumber": true,
+  "showUnsupportedFiles": false,
+  "livePreview": true,
+  "readableLineLength": false,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "newLinkFormat": "shortest",
+  "attachmentFolderPath": "_media"
+}
