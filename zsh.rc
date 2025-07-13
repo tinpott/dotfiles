@@ -1,4 +1,13 @@
-USE_SYMBOLS=true
+export IS_VSCODE=false
+if [[ $(printenv | grep -c "VSCODE_") -gt 0 ]]; then
+	export IS_VSCODE=true
+fi
+
+if [[ $IS_VSCODE = true ]]; then
+	USE_SYMBOLS=false
+else
+	USE_SYMBOLS=true
+fi
 
 ### git status
 
@@ -85,6 +94,7 @@ bindkey '^R' history-incremental-search-backward
 ### environment variables
 export EDITOR=nvim
 export VISUAL=nvim
+export PAGER=less
 export TERM=xterm-256color
 export HISTCONTROL=ignoreboth # ignore duplicate entries in history
 export HISTFILE="$HOME/.histfile"
@@ -112,7 +122,7 @@ setopt HIST_SAVE_NO_DUPS
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh #/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ### aliases
