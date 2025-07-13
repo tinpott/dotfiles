@@ -222,7 +222,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = Papirus
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -271,7 +271,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 12
     # Define which corners to round when drawing the window. If the corner radius
     # is set to 0 this option will be ignored.
     #
@@ -340,14 +340,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
+    background = "#222222f0"
     foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#285577"
+    background = "#285577f0"
     foreground = "#ffffff"
     timeout = 10
     override_pause_level = 30
@@ -355,7 +355,7 @@
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#900000"
+    background = "#900000f0"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0

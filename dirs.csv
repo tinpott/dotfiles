@@ -1,5 +1,6 @@
 alacritty, alacritty/, ~/.config/alacritty/
 awesome,   awesome/,   ~/.config/awesome/
+dunst,     dunst/,     ~/.config/dunst/
 hypr,      hypr/,      ~/.config/hypr/
 fastfetch, fastfetch,  ~/.config/fastfetch/
 joplin,    joplin/,    ~/.config/joplin/
