@@ -5,60 +5,67 @@ if [[ $# != 2 ]]; then
 	exit 1
 fi
 
+
+channel_param=$1
+if [[ $channel_param = "sink" ]]; then
+	channel_id="@DEFAULT_SINK@"
+elif [[ $channel_param = "source" ]]; then
+	channel_id="@DEFAULT_SOURCE@"
+else
+	>&2 echo "Illegal channel param: $channel_param"
+	exit 1
+fi
+echo "Channel: $channel_param"
+
 volume_diff=5
-ping=false # TODO: implement this and make it configurable
-
-channel=$1
-sink="sink"
-src="source"
-if [ $channel = "sink" ]; then
-	channel="@DEFAULT_SINK@"
-elif [ $channel = "source" ]; then
-	channel="@DEFAULT_SOURCE@"
-else
-	>&2 echo "Illegal channel: $channel"
-	exit 1
-fi
-
-action=$2
-if [ $action = "inc" ]; then
-	wpctl set-volume $channel $volume_diff%+
-	if [[ ping = true && $channel = "@DEFAULT_SINK@" ]]; then
+action_param=$2
+if [[ $action_param = "inc" ]]; then
+	wpctl set-volume $channel_id $volume_diff%+
+	if [[ ping = true && $channel_param = "sink" ]]; then
 		play "$HOME/Music/ping.aiff" 2> /dev/null &
 	fi
-elif [ $action = "dec" ]; then
-	wpctl set-volume $channel $volume_diff%-
-	if [[ ping = true && $channel = "@DEFAULT_SINK@" ]]; then
+elif [[ $action_param = "dec" ]]; then
+	wpctl set-volume $channel_id $volume_diff%-
+	if [[ ping = true && $channel_param = "sink" ]]; then
 		play "$HOME/Music/ping.aiff" 2> /dev/null &
 	fi
-elif [ $action = "toggle" ]; then
-	wpctl set-mute $channel toggle
+elif [[ $action_param = "toggle" ]]; then
+	wpctl set-mute $channel_id toggle
 else
-	>&2 echo "Illegal action: $action"
+	>&2 echo "Illegal action: $action_param"
 	exit 1
 fi
+echo "Action: $action_param"
 
-if [ $channel = "@DEFAULT_SINK@" ]; then
-	icon=""
+volume=$(wpctl get-volume $channel_id | awk '{printf("%d\n", 100 * $2)}')
+muted=$(wpctl get-volume $channel_id | awk '{print $3}' | grep "[MUTED]")
+echo "Volume: $volume $muted"
+if [[ $channel_param = "sink" ]]; then
+	icon_prefix="audio-volume"
 else
-	icon=""
+	icon_prefix="microphone-sensitivity"
 fi
-volume=$(wpctl get-volume $channel) # TODO: $(wpctl get-volume $channel | awk '{printf("%d%%\n", 100 * $2)}')
+icon_string="${icon_prefix}-muted"
+urgency="low"
+if [[ -z $muted ]]; then
+	if [[ $channel_param = "sink" && $action_param != "toggle" ]]; then
+		play "$HOME/Music/ping.aiff" 2> /dev/null &
+	fi
+	# Icon
+	if [[ $volume -gt  0 ]]; then icon_string="${icon_prefix}-low";    fi
+	if [[ $volume -gt 33 ]]; then icon_string="${icon_prefix}-medium"; fi
+	if [[ $volume -gt 66 ]]; then icon_string="${icon_prefix}-high";   fi
+	# Urgency
+	if [[ $volume -gt 100 ]]; then
+		urgency="critical"
+	fi
+fi
+
 msg_tag="myvolume"
-if [[ $action = "inc" || $action = "dec" ]]; then # FIXME: the icons don't work
-	dunstify \
-		-a "changeVolume" \
-		-u low \
-		-t 3000 \
-		-i audio-volume-high \
-		-h string:x-dunst-stack-tag:$msg_tag \
-		-h int:value:"$volume" "${icon} ${volume}"
-else
-	dunstify \
-		-a "changeVolume" \
-		-u low \
-		-t 3000 \
-		-i audio-volume-muted \
-		-h string:x-dunst-stack-tag:$msg_tag \
-		-h int:value:"$volume" "${icon} ${volume}"
-fi
+dunstify \
+	-a "changeVolume" \
+	-u $urgency \
+	-t 3000 \
+	-i $icon_string \
+	-h string:x-dunst-stack-tag:$msg_tag \
+	-h int:value:"$volume" "${volume}%"
