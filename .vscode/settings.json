@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"zsh.rc": "sh",
+		"wlogout/layout": "json"
+	}
+}
