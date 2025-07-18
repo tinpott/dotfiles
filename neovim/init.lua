@@ -1,17 +1,18 @@
+vim.opt.wrap = false
+vim.opt.cursorline = true
+vim.opt.mouse = "n"
+vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
+
+-- line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.wrap = false
-vim.opt.cursorline = true
-
+-- whitespace
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
-
-vim.opt.mouse = "n"
-
-vim.opt.termguicolors = true
 
 local space = "·"
 vim.opt.listchars = {
@@ -175,10 +176,21 @@ require("lazy").setup({
 				filter = "spectrum"
 			}
 		},
+		{
+			"catgoose/nvim-colorizer.lua",
+			opts = {
+				filetypes = { "*" },
+				user_default_options = {
+					RRGGBBAA = true,
+				},
+			},
+		},
 	},
 	checker = {
 		enabled = true, -- Automatically check for updates
 		notify = false, -- But don't show the popup/notification
 	},
 })
+
+vim.api.nvim_set_keymap("n", "<leader>m", ":RenderMarkdown toggle<CR>", { noremap = true, silent = true })
 
