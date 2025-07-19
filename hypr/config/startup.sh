@@ -11,6 +11,7 @@ dunst &
 swaync &
 hyprpaper &
 hypridle &
+hyprpm reload -n &
 
 # media
 noisetorch -i &
