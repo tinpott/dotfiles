@@ -1,4 +1,4 @@
-@define-color detail-color      #fdf6e3;
+@define-color detail-color      #fcf0cf;
 @define-color foreground-color  #1a1a1a;
 @define-color background-color  #292b2e;
 
@@ -33,46 +33,39 @@ window#waybar {
 #clock,
 #tray {
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 
 #network {
-	color: #268bd2;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 
 /* media */
 #custom-media {
-	color: #a3da11;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 #pulseaudio.input {
-	color: #ff99cc;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 #pulseaudio.output {
-	color: #7362c0;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 
 /* performance */
 #memory {
-	color: #28a068;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 #cpu {
-	color: #cf4444;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 #custom-gpu {
-	color: #b58900;
 	background: @foreground-color;
-	padding: 0 12px;
+	padding: 0 6px;
 }
 
