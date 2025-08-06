@@ -1,0 +1,12 @@
+alacritty, alacritty/,           $XDG_CONFIG_HOME/alacritty/
+awesome,   awesome/,             $XDG_CONFIG_HOME/awesome/
+dunst,     dunst/,               $XDG_CONFIG_HOME/dunst/
+hypr,      hypr/,                $XDG_CONFIG_HOME/hypr/
+fastfetch, fastfetch,            $XDG_CONFIG_HOME/fastfetch/
+joplin,    joplin/,              $XDG_CONFIG_HOME/joplin/
+neovim,    neovim/,              $XDG_CONFIG_HOME/nvim/
+ranger,    ranger/,              $XDG_CONFIG_HOME/ranger/
+vscode,    vscode/keybinds.json, $XDG_CONFIG_HOME/Code/User/keybinds.json
+vscode,    vscode/settings.json, $XDG_CONFIG_HOME/Code/User/settings.json
+waybar,    waybar/,              $XDG_CONFIG_HOME/waybar/
+zsh,       zsh.rc,               $HOME/.zshrc

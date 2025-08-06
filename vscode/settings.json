@@ -1,0 +1,101 @@
+{
+    "liveshare.languages.allowGuestCommandControl": true,
+    "terminal.integrated.defaultProfile.windows": "Ubuntu-18.04 (WSL)",
+    "editor.fontSize": 12,
+    "editor.renderWhitespace": "boundary",
+    "workbench.iconTheme": "material-icon-theme",
+    "debug.console.fontSize": 12,
+    "terminal.integrated.fontSize": 12,
+    "window.restoreWindows": "none",
+    "editor.inlayHints.enabled": "off",
+    "workbench.colorCustomizations": {
+
+        "editor.lineHighlightBackground": "#0084ff2d",
+        "editor.lineHighlightBorder": "#00eeff1f",
+        "editorLineNumber.foreground": "#c6c6c69a",
+        "editorLineNumber.activeForeground": "#ffc15dd0"
+    },
+    "editor.wordWrap": "on",
+    "diffEditor.wordWrap": "off",
+    "editor.guides.indentation": false,
+    "editor.guides.bracketPairs": true,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "\"SauceCodePro Nerd Font\", \"Source Code Pro\", monospace",
+    "debug.onTaskErrors": "debugAnyway",
+    "debug.showBreakpointsInOverviewRuler": true,
+    "blockhighlight.background": [
+
+        "200",
+        "200",
+        "200",
+        ".05"
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+    "extensions.ignoreRecommendations": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.lineNumbers": "relative",
+    "editor.insertSpaces": false,
+    "blockman.n04ColorComboPreset": "Satura (Gradients)",
+    "diffEditor.renderSideBySide": true,
+    "editor.rulers": [
+        120
+    ],
+    "redhat.telemetry.enabled": false,
+    "cmake.configureOnOpen": true,
+    "cmake.options.statusBarVisibility": "icon",
+    "python.analysis.stubPath": "",
+    "editor.largeFileOptimizations": false,
+    "code-eol.highlightNonDefault": true,
+    "[handlebars]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "files.associations": {
+        "*.zap": "json",
+        "*.cc": "cpp",
+        "*.hh": "cpp",
+        "*.zapt": "handlebars"
+    },
+    "makefile.configureOnOpen": true,
+    "terminal.integrated.showExitAlert": false,
+    "chat.commandCenter.enabled": false,
+    "editor.fontFamily": "\"SauceCodePro Nerd Font\", \"Source Code Pro\", monospace",
+    "editor.minimap.enabled": false,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "workbench.colorTheme": "One Monokai",
+    "C_Cpp.copilotHover": "disabled",
+    "chat.extensionTools.enabled": false,
+    "chat.focusWindowOnConfirmation": false,
+    "chat.setupFromDialog": false,
+    "clangd.arguments": [
+        "--clang-tidy",
+        "--background-index",
+        "--offset-encoding=utf-8",
+        "--pretty"
+    ],
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": false,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "fileHistory": false,
+        "repositories": true,
+        "searchAndCompare": false,
+        "launchpad": false
+    },
+    "gitlens.codeLens.enabled": false,
+    "git.blame.editorDecoration.enabled": true,
+    "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "clangd.path": "c:\\Users\\jpotter\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\19.1.2\\clangd_19.1.2\\bin\\clangd.exe",
+    "clangd.checkUpdates": true,
+    "workbench.editor.empty.hint": "hidden",
+    "window.menuBarVisibility": "compact",
+    "window.density.editorTabHeight": "compact"
+}

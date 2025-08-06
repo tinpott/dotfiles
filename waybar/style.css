@@ -1,0 +1,68 @@
+@define-color detail-color      #fcf0cf;
+@define-color foreground-color  #1a1a1a;
+@define-color background-color  #292b2e;
+
+* {
+	font-size: 12px;
+	font-family: "SauceCodePro Nerd Font", monospace;
+	border-color: transparent;
+}
+window#waybar {
+	background: @background-color;
+	color: @detail-color;
+}
+
+#workspaces {
+	background: @foreground-color;
+}
+#workspaces button {
+	padding: 0 6px;
+	color: @detail-color;
+}
+#workspaces button.active {
+	color: @background-color;
+	background: @detail-color;
+	border-radius: 12px;
+}
+#workspaces button:hover {
+	color: @foreground-color;
+	border: @detail-color;
+	border-radius: 12px;
+}
+
+#window,
+#clock,
+#tray {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+
+#network {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+
+/* media */
+#custom-media {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+#pulseaudio {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+
+/* performance */
+#memory {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+#cpu {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+#custom-gpu {
+	background: @foreground-color;
+	padding: 0 6px;
+}
+

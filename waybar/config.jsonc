@@ -1,0 +1,128 @@
+// -*- mode: jsonc -*-
+
+{
+	"layer":    "top",
+	"position": "top",
+
+	"modules-left": [
+		"hyprland/workspaces"
+//		"custom/media"
+	],
+	"modules-center": [
+		//"hyprland/window"
+		"clock#date",
+		"clock#time"
+	],
+	"modules-right": [
+		"tray",
+		"custom/gpu",
+		"cpu",
+		"memory",
+		"pulseaudio#output",
+		"pulseaudio#input",
+		"network"
+	],
+
+	"hyprland/workspaces": {
+		"format": "{icon} {name}",
+		"format-icons": {
+			"urgent":  "",
+			"active":  "", // focused workspace on current monitor
+			"visible": "", // focused workspace on other monitors
+			"default": "",
+			"empty":   "",
+			"special": "" // 
+		},
+		"all-outputs": false,
+		"show-special": true
+	},
+
+	"hyprland/window": {
+		"max-length": 30
+	},
+
+	"clock#time": {
+		"format": " {:%I:%M %p} ]",
+		"tooltip": false
+	},
+	"clock#date": {
+		"format": "[  {:%a, %d %h %Y}",
+		"tooltip": false
+	},
+
+	"network": {
+		"on-click": "nm-connection-editor",
+
+		"format":          "[  {ifname} ]",
+		"format-ethernet": "[  {ifname} ]",
+		"format-wifi":     "[  {essid} ({signalStrength}%) ]",
+		"tooltip-format":    " {ifname} as {ipaddr} via {gwaddr}",
+
+		"format-disconnected":         "[  Offline ]",
+		"tooltip-format-disconnected":   " Offline"
+	},
+
+	/* media */
+	"custom/media": {
+		"on-click":       "~/.scripts/media.sh toggle",
+		"on-scroll-up":   "~/.scripts/media.sh prev",
+		"on-scroll-down": "~/.scripts/media.sh next",
+
+		"exec": "~/.config/waybar/mediaplayer.py 2> /dev/null",
+
+		"max-length": 30,
+		"return-type": "json",
+		"escape": true,
+		"format": "{}"
+	},
+	"pulseaudio#input": {
+		"on-click":       "~/.scripts/audio.sh source toggle",
+		"on-scroll-up":   "~/.scripts/audio.sh source inc",
+		"on-scroll-down": "~/.scripts/audio.sh source dec",
+
+		"on-click-middle": "pavucontrol -t 4",
+
+		"format":              "[ {format_source} ]",
+		"format-source":       " {volume:2}%",
+		"format-source-muted": " {volume:2}%"
+	},
+	"pulseaudio#output": {
+		"on-click":       "~/.scripts/audio.sh sink toggle",
+		"on-scroll-up":   "~/.scripts/audio.sh sink inc",
+		"on-scroll-down": "~/.scripts/audio.sh sink dec",
+
+		"on-click-middle": "pavucontrol -t 3",
+
+		"format":       "[ {icon} {volume:2}% ]",
+		"format-muted":      "[  {volume:2}% ]",
+		"format-icons": {
+//			"headphones": "",
+			"default": [
+				" ",
+				" ",
+				" "
+			]
+		}
+	},
+
+	/* performance */
+	"custom/gpu": {
+		"interval": 5,
+		"return-type": "",
+		"exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
+		"format": "[ 󰢮  {}% ]",
+		"tooltip": false
+	},
+	"memory": {
+		"interval": 5,
+
+		"format":         "[  {percentage:2}% ]",
+		"tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"format": "[  {usage:2}% ]"
+	}
+}
+

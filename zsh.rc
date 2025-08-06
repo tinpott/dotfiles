@@ -1,0 +1,134 @@
+USE_SYMBOLS=true
+
+### git status
+
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+if [ $USE_SYMBOLS = true ]; then
+	      vcs_formats=" %b%u%c "
+	vcs_actionformats=" %b|%a %u%c "
+else
+	      vcs_formats="(%b%u%c) "
+	vcs_actionformats="(%b|%a %u%c) "
+fi
+zstyle ':vcs_info:git:*' formats       $vcs_formats
+zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
+
+
+### prompt string 1
+
+USER_COLOR=cyan
+FILL_COLOR=white
+GIT_COLOR=yellow
+if [ "$USER" = "root" ]; then
+	USER_COLOR=red
+fi
+
+PS_USER='%B%F{'$USER_COLOR'}%n%f'
+PS_PWD='%B%F{'$FILL_COLOR'}%(1~|%1~|%~)%f%b'
+PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f'
+PS_END='%B%F{'$USER_COLOR'}%%%f%b'
+
+
+### vim mode indicator - https://dougblack.io/words/zsh-vi-mode.html
+
+function zle-line-init zle-keymap-select {
+	PS_VI="?"
+	case $KEYMAP in
+		"vicmd")
+			PS_VI="_"
+			;;
+		"main" | "viins")
+			PS_VI="|"
+			;;
+	esac
+	PS_VI="[$PS_VI]"
+
+	PS1="$PS_VI $PS_USER $PS_PWD $PS_GIT$PS_END "
+
+	PS2='%B%F{'$USER_COLOR'}>%f%b'
+	PS2="$PS_VI$PS2"
+
+	zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
+
+### basic auto-complete
+
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+# bash-like word selection
+autoload -U select-word-style
+select-word-style bash
+
+# key binds
+bindkey -v
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[3~' delete-char
+bindkey '^R' history-incremental-search-backward
+
+
+### environment variables
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=less
+export TERM=xterm-256color
+export HISTCONTROL=ignoreboth # ignore duplicate entries in history
+export HISTFILE="$HOME/.histfile"
+export HISTSIZE=500
+export SAVEHIST=500
+export PATH="$HOME/.scripts/:$PATH"
+
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+
+### beam-style cursor
+
+#_fix_cursor() {
+#   echo -ne '\e[5 q'
+#}
+#precmd_functions+=(_fix_cursor)
+
+
+### syntax highlighting
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+### aliases
+
+alias ls='ls --color=auto -C --group-directories-first'
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+
+alias diff='diff --color=auto'
+alias c='clear'
+alias ccat='pygmentize -g -O style=monokai'
+alias g='git'
+alias glog='git log --oneline'
+alias grep='grep --color=auto'
+alias grps='groups | sed "s/ /\n/g" | sort'
+alias v='nvim'
