@@ -40,13 +40,20 @@ function zle-line-init zle-keymap-select {
 	PS_VI="?"
 	case $KEYMAP in
 		"vicmd")
-			PS_VI="_"
+			if [ $USE_SYMBOLS = true ]; then
+				PS_VI="❰"
+			else
+				PS_VI="<"
+			fi
 			;;
 		"main" | "viins")
-			PS_VI="|"
+			if [ $USE_SYMBOLS = true ]; then
+				PS_VI="❱"
+			else
+				PS_VI=">"
+			fi
 			;;
 	esac
-	PS_VI="[$PS_VI]"
 
 	PS1="$PS_VI $PS_USER $PS_PWD $PS_GIT$PS_END "
 
@@ -132,3 +139,4 @@ alias glog='git log --oneline'
 alias grep='grep --color=auto'
 alias grps='groups | sed "s/ /\n/g" | sort'
 alias v='nvim'
+
