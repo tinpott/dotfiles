@@ -37,28 +37,23 @@ PS_END='%B%F{'$USER_COLOR'}%%%f%b'
 ### vim mode indicator - https://dougblack.io/words/zsh-vi-mode.html
 
 function zle-line-init zle-keymap-select {
-	PS_VI="?"
+	PS_VI="%"
 	case $KEYMAP in
 		"vicmd")
-			if [ $USE_SYMBOLS = true ]; then
-				PS_VI="❰"
-			else
-				PS_VI="<"
-			fi
+			PS_VI="❰"
+			PS_VI="%F{white}$PS_VI%f" # TODO: use FILL_COLOR
 			;;
 		"main" | "viins")
-			if [ $USE_SYMBOLS = true ]; then
-				PS_VI="❱"
-			else
-				PS_VI=">"
-			fi
+			PS_VI="❱"
+			PS_VI="%F{cyan}$PS_VI%f" # TODO: use USER_COLOR
 			;;
 	esac
 
-	PS1="$PS_VI $PS_USER $PS_PWD $PS_GIT$PS_END "
+	PS1="$PS_USER $PS_PWD $PS_GIT$PS_VI " #"$PS_VI $PS_USER $PS_PWD $PS_GIT$PS_END "
 
-	PS2='%B%F{'$USER_COLOR'}>%f%b'
-	PS2="$PS_VI$PS2"
+	#PS2='%B%F{'$USER_COLOR'}>%f%b'
+	#PS2="$PS_VI$PS2"
+	PS2="$PS_VI "
 
 	zle reset-prompt
 }
