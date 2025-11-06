@@ -42,23 +42,23 @@
 	},
 
 	"clock#time": {
-		"format": " {:%I:%M %p} ]",
+		"format": " {:%I:%M %p} )",
 		"tooltip": false
 	},
 	"clock#date": {
-		"format": "[  {:%a, %d %h %Y}",
+		"format": "(  {:%a, %d %h %Y}",
 		"tooltip": false
 	},
 
 	"network": {
 		"on-click": "nm-connection-editor",
 
-		"format":          "[  {ifname} ]",
-		"format-ethernet": "[  {ifname} ]",
-		"format-wifi":     "[  {essid} ({signalStrength}%) ]",
+		"format":          "(  {ifname} )",
+		"format-ethernet": "(  {ifname} )",
+		"format-wifi":     "(  {essid} ({signalStrength}%) )",
 		"tooltip-format":    " {ifname} as {ipaddr} via {gwaddr}",
 
-		"format-disconnected":         "[  Offline ]",
+		"format-disconnected":         "(  Offline )",
 		"tooltip-format-disconnected":   " Offline"
 	},
 
@@ -82,7 +82,7 @@
 
 		"on-click-middle": "pavucontrol -t 4",
 
-		"format":              "[ {format_source} ]",
+		"format":              "( {format_source} )",
 		"format-source":       " {volume:2}%",
 		"format-source-muted": " {volume:2}%"
 	},
@@ -93,8 +93,8 @@
 
 		"on-click-middle": "pavucontrol -t 3",
 
-		"format":       "[ {icon} {volume:2}% ]",
-		"format-muted":      "[  {volume:2}% ]",
+		"format":       "( {icon} {volume:2}% )",
+		"format-muted":      "(  {volume:2}% )",
 		"format-icons": {
 //			"headphones": "",
 			"default": [
@@ -110,19 +110,19 @@
 		"interval": 5,
 		"return-type": "",
 		"exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
-		"format": "[ 󰢮  {}% ]",
+		"format": "( 󰢮  {}% )",
 		"tooltip": false
 	},
 	"memory": {
 		"interval": 5,
 
-		"format":         "[  {percentage:2}% ]",
+		"format":         "(  {percentage:2}% )",
 		"tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
 	},
 
 	"cpu": {
 		"interval": 5,
-		"format": "[  {usage:2}% ]"
+		"format": "(  {usage:2}% )"
 	}
 }
 
