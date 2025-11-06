@@ -1,4 +1,18 @@
 USE_SYMBOLS=true
+IS_VSCODE=false
+
+SHOW_FETCH=true
+if [[ $(printenv | grep -c "VSCODE_") -gt 0 ]]; then
+	SHOW_FETCH=false
+elif [[ $(printenv | grep -c "NVIM") -gt 0 ]]; then
+	SHOW_FETCH=false
+fi
+
+SHOW_HOST=false
+if [[ $(printenv | grep -c "SSH_") -gt 0 ]]; then
+	SHOW_HOST=true
+fi
+
 
 ### git status
 
@@ -29,6 +43,10 @@ if [ "$USER" = "root" ]; then
 fi
 
 PS_USER='%B%F{'$USER_COLOR'}%n%f'
+PS_HOST='%B%F{'$USER_COLOR'}%m%f'
+if [[ $SHOW_HOST = true ]]; then
+	PS_USER="$PS_USER@$PS_HOST"
+fi
 PS_PWD='%B%F{'$FILL_COLOR'}%(1~|%1~|%~)%f%b'
 PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f'
 PS_END='%B%F{'$USER_COLOR'}%%%f%b'
@@ -134,4 +152,8 @@ alias glog='git log --oneline'
 alias grep='grep --color=auto'
 alias grps='groups | sed "s/ /\n/g" | sort'
 alias v='nvim'
+
+if [[ $SHOW_FETCH = true ]]; then
+	fastfetch
+fi
 
