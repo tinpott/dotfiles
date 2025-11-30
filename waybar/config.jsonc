@@ -15,6 +15,7 @@
 	],
 	"modules-right": [
 		"tray",
+		"battery",
 		"custom/gpu",
 		"cpu",
 		"memory",
@@ -105,7 +106,7 @@
 		}
 	},
 
-	/* performance */
+	/* Hardware stats */
 	"custom/gpu": {
 		"interval": 5,
 		"return-type": "",
@@ -119,10 +120,25 @@
 		"format":         "(  {percentage:2}% )",
 		"tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
 	},
-
 	"cpu": {
 		"interval": 5,
 		"format": "(  {usage:2}% )"
+	},
+	"battery": {
+		"bat": "BAT1",
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"events": {
+			"on-discharging-warning": "notify-send -u normal 'Low Battery'",
+			"on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+			"on-charging-100": "notify-send -u normal 'Battery Full!'"
+		},
+		"format": "( {icon} {capacity}% )",
+		"format-icons": [ "", "", "", "", "" ],
+		"max-length": 25
 	}
 }
 

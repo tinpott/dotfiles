@@ -32,35 +32,15 @@ window#waybar {
 
 #window,
 #clock,
-#tray {
-	background: @foreground-color;
-	padding: 0 6px;
-}
-
-#network {
-	background: @foreground-color;
-	padding: 0 6px;
-}
-
-/* media */
-#custom-media {
-	background: @foreground-color;
-	padding: 0 6px;
-}
-#pulseaudio {
-	background: @foreground-color;
-	padding: 0 6px;
-}
-
-/* performance */
-#memory {
-	background: @foreground-color;
-	padding: 0 6px;
-}
-#cpu {
-	background: @foreground-color;
-	padding: 0 6px;
-}
+#tray,
+#network,
+/* Media */
+#custom-media,
+#pulseaudio,
+/* Hardware stats */
+#battery,
+#memory,
+#cpu,
 #custom-gpu {
 	background: @foreground-color;
 	padding: 0 6px;
