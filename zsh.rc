@@ -1,18 +1,15 @@
+# Manual configs
 USE_SYMBOLS=true
 IS_VSCODE=false
+SHOW_HOST=false
 
+# Env-based configs
 SHOW_FETCH=true
 if [[ $(printenv | grep -c "VSCODE_") -gt 0 ]]; then
 	SHOW_FETCH=false
 elif [[ $(printenv | grep -c "NVIM") -gt 0 ]]; then
 	SHOW_FETCH=false
 fi
-
-SHOW_HOST=false
-if [[ $(printenv | grep -c "SSH_") -gt 0 ]]; then
-	SHOW_HOST=true
-fi
-
 
 ### git status
 
@@ -111,7 +108,7 @@ export HISTCONTROL=ignoreboth # ignore duplicate entries in history
 export HISTFILE="$HOME/.histfile"
 export HISTSIZE=500
 export SAVEHIST=500
-export PATH="$HOME/.scripts/:$PATH"
+export PATH="$HOME/.scripts/:$HOME/.local/bin/:$PATH"
 
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
@@ -136,7 +133,7 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-### aliases
+# Aliases
 
 alias ls='ls --color=auto -C --group-directories-first'
 alias l='ls'
@@ -147,11 +144,17 @@ alias lla='ls -la'
 alias diff='diff --color=auto'
 alias c='clear'
 alias ccat='pygmentize -g -O style=monokai'
-alias g='git'
-alias glog='git log --oneline'
+alias g="git"
+alias ga="git add"
+alias gc="git commit"
+alias gl="git log --oneline"
+alias gll="git log"
+alias gp="git push origin HEAD"
 alias grep='grep --color=auto'
 alias grps='groups | sed "s/ /\n/g" | sort'
-alias v='nvim'
+alias pk9="pkill -9"
+alias py="python"
+alias v="nvim"
 
 if [[ $SHOW_FETCH = true ]]; then
 	fastfetch
