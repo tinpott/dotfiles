@@ -11,13 +11,12 @@
 		"wm",
 		"cpu",
 		"gpu",
-		"memory"/*,
-		"break",
-		"colors"*/
+		"memory",
+		"disk"
+//		"break",
+//		"colors"
 	]
 }
-
-
 
 /*
 		{
