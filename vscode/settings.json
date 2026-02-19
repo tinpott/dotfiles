@@ -1,7 +1,7 @@
 {
     "liveshare.languages.allowGuestCommandControl": true,
     "terminal.integrated.defaultProfile.windows": "Ubuntu-18.04 (WSL)",
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.renderWhitespace": "boundary",
     "workbench.iconTheme": "material-icon-theme",
     "debug.console.fontSize": 12,
@@ -15,12 +15,11 @@
         "editorLineNumber.foreground": "#c6c6c69a",
         "editorLineNumber.activeForeground": "#ffc15dd0"
     },
-    "editor.wordWrap": "on",
     "diffEditor.wordWrap": "off",
     "editor.guides.indentation": false,
     "editor.guides.bracketPairs": true,
     "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "\"SauceCodePro Nerd Font\", \"Source Code Pro\", monospace",
+    "terminal.integrated.fontFamily": "\"SauceCodePro Nerd Font\", monospace",
     "debug.onTaskErrors": "debugAnyway",
     "debug.showBreakpointsInOverviewRuler": true,
     "blockhighlight.background": [
@@ -62,7 +61,7 @@
     "makefile.configureOnOpen": true,
     "terminal.integrated.showExitAlert": false,
     "chat.commandCenter.enabled": false,
-    "editor.fontFamily": "\"SauceCodePro Nerd Font\", \"Source Code Pro\", monospace",
+    "editor.fontFamily": "\"SauceCodePro Nerd Font\", monospace",
     "editor.minimap.enabled": false,
     "editor.acceptSuggestionOnEnter": "smart",
     "workbench.colorTheme": "One Monokai",
@@ -96,6 +95,13 @@
     "clangd.path": "c:\\Users\\jpotter\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\19.1.2\\clangd_19.1.2\\bin\\clangd.exe",
     "clangd.checkUpdates": true,
     "workbench.editor.empty.hint": "hidden",
-    "window.menuBarVisibility": "compact",
-    "window.density.editorTabHeight": "compact"
+    "window.density.editorTabHeight": "compact",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.useAgentSkills": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.selectedModel": "default",
+    "remote.autoForwardPortsSource": "hybrid",
+    "chat.viewSessions.orientation": "stacked",
+    "window.menuBarVisibility": "compact"
 }
