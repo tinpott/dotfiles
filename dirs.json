@@ -1,0 +1,14 @@
+{
+	"alacritty" : [ { "target": "$HOME/.config/alacritty/"                                             } ],
+	"dunst"     : [ { "target": "$HOME/.config/dunst/"                                                 } ],
+	"hypr"      : [ { "target": "$HOME/.config/hypr/"                                                  } ],
+	"fastfetch" : [ { "target": "$HOME/.config/fastfetch/"                                             } ],
+	"neovim"    : [ { "target": "$HOME/.config/nvim/"                                                  } ],
+	"ranger"    : [ { "target": "$HOME/.config/ranger/"                                                } ],
+	"scripts.d" : [ { "target": "$HOME/.scripts/"                                                      } ],
+	"tmux"      : [ { "target": "$HOME/.tmux.conf",                         "file": "tmux.conf"        } ],
+	"waybar"    : [ { "target": "$HOME/.config/waybar/"                                                } ],
+	"vscode"    : [ { "target": "$HOME/.config/Code/User/keybindings.json", "file": "keybindings.json" },
+	                { "target": "$HOME/.config/Code/User/settings.json",    "file": "settings.json"    } ],
+	"zsh"       : [ { "target": "$HOME/.zshrc",                             "file": "zsh.rc"           } ]
+}
