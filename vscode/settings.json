@@ -9,15 +9,14 @@
     "window.restoreWindows": "none",
     "editor.inlayHints.enabled": "off",
     "workbench.colorCustomizations": {
-
-        "editor.lineHighlightBackground": "#0084ff2d",
-        "editor.lineHighlightBorder": "#00eeff1f",
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f",
         "editorLineNumber.foreground": "#c6c6c69a",
         "editorLineNumber.activeForeground": "#ffc15dd0"
     },
     "diffEditor.wordWrap": "off",
     "editor.guides.indentation": false,
-    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairs": false,
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "\"SauceCodePro Nerd Font\", monospace",
     "debug.onTaskErrors": "debugAnyway",
@@ -103,5 +102,9 @@
     "claudeCode.selectedModel": "default",
     "remote.autoForwardPortsSource": "hybrid",
     "chat.viewSessions.orientation": "stacked",
-    "window.menuBarVisibility": "compact"
+    "window.menuBarVisibility": "compact",
+    "godot.csharp.executablePath": "godot-mono",
+    "dotnet.codeLens.enableReferencesCodeLens": false,
+    "godotTools.editorPath.godot4": "godot-mono",
+    "editor.wordWrap": "off"
 }
