@@ -95,7 +95,7 @@ require("lazy").setup({
 			version = "*",
 			opts = {
 				size = 20,
-				open_mapping = [[<C-`>]],
+				open_mapping = [[<C-t>]],
 				shell = vim.o.shell,
 				autoscroll = true,
 				direction = "horizontal",
@@ -192,5 +192,9 @@ require("lazy").setup({
 	},
 })
 
+vim.g.mapleader = " " -- Space as leader key
 vim.api.nvim_set_keymap("n", "<leader>m", ":RenderMarkdown toggle<CR>", { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap("n", "<leader>w", ":set wrap !<CR>",            { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>n", ":set relativenumber !<CR>",  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>t", ":ToggleTerm toggle<CR>",     { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>e", ":Neotree toggle<CR>",        { noremap = true, silent = true })
