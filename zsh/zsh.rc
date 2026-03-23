@@ -1,7 +1,6 @@
 # Manual configs
 USE_SYMBOLS=true
-IS_VSCODE=false
-SHOW_HOST=false
+SHOW_HOST=true
 
 # Env-based configs
 SHOW_FETCH=true
@@ -32,20 +31,20 @@ zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 ### prompt string 1
 
-USER_COLOR=cyan
+USER_COLOR=magenta
 FILL_COLOR=white
 GIT_COLOR=yellow
 if [ "$USER" = "root" ]; then
 	USER_COLOR=red
 fi
 
-PS_USER='%B%F{'$USER_COLOR'}%n%f'
-PS_HOST='%B%F{'$USER_COLOR'}%m%f'
 if [[ $SHOW_HOST = true ]]; then
-	PS_USER="$PS_USER@$PS_HOST"
+	PS_USER='%B%F{'$USER_COLOR'}%n@%m%f%b'
+else
+	PS_USER='%B%F{'$USER_COLOR'}%n%f%b'
 fi
-PS_PWD='%B%F{'$FILL_COLOR'}%(1~|%1~|%~)%f%b'
-PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f'
+PS_PWD='%B%F{'$FILL_COLOR'}%~%f%b'
+PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f%b'
 PS_END='%B%F{'$USER_COLOR'}%%%f%b'
 
 
@@ -55,26 +54,23 @@ function zle-line-init zle-keymap-select {
 	PS_VI="%"
 	case $KEYMAP in
 		"vicmd")
-			PS_VI="❰"
-			PS_VI="%F{white}$PS_VI%f" # TODO: use FILL_COLOR
+			PS_VI=$([[ $USE_SYMBOLS = true ]] && echo "❰" || echo "<")
+			PS_VI="%F{$FILL_COLOR}$PS_VI%f"
 			;;
 		"main" | "viins")
-			PS_VI="❱"
-			PS_VI="%F{cyan}$PS_VI%f" # TODO: use USER_COLOR
+			PS_VI=$([[ $USE_SYMBOLS = true ]] && echo "❱" || echo ">")
+			PS_VI="%F{$USER_COLOR}$PS_VI%f"
 			;;
 	esac
 
-	PS1="$PS_USER $PS_PWD $PS_GIT$PS_VI " #"$PS_VI $PS_USER $PS_PWD $PS_GIT$PS_END "
-
-	#PS2='%B%F{'$USER_COLOR'}>%f%b'
-	#PS2="$PS_VI$PS2"
+	PS1="$PS_USER $PS_PWD $PS_GIT
+$PS_VI "
 	PS2="$PS_VI "
 
 	zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-export KEYTIMEOUT=1
 
 
 ### basic auto-complete
@@ -103,8 +99,6 @@ bindkey '^R' history-incremental-search-backward
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=less
-export TERM=xterm-256color
-export HISTCONTROL=ignoreboth # ignore duplicate entries in history
 export HISTFILE="$HOME/.histfile"
 export HISTSIZE=500
 export SAVEHIST=500
@@ -159,4 +153,3 @@ alias v="nvim"
 if [[ $SHOW_FETCH = true ]]; then
 	fastfetch
 fi
-
