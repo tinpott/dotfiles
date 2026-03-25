@@ -124,7 +124,17 @@ setopt HIST_SAVE_NO_DUPS
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_zsh_hl_paths=(
+	/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+)
+for _zsh_hl_path in $_zsh_hl_paths; do
+	if [[ -f $_zsh_hl_path ]]; then
+		source $_zsh_hl_path
+		break
+	fi
+done
+unset _zsh_hl_paths _zsh_hl_path
 
 
 # Aliases
