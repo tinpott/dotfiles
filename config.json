@@ -3,6 +3,7 @@
 	"dunst"     : [ { "target": "$HOME/.config/dunst/"                                                 } ],
 	"hypr"      : [ { "target": "$HOME/.config/hypr/"                                                  } ],
 	"fastfetch" : [ { "target": "$HOME/.config/fastfetch/"                                             } ],
+	"mangohud"  : [ { "target": "$HOME/.config/MangoHud/"                                              } ],
 	"neovim"    : [ { "target": "$HOME/.config/nvim/"                                                  } ],
 	"ranger"    : [ { "target": "$HOME/.config/ranger/"                                                } ],
 	"scripts.d" : [ { "target": "$HOME/.scripts/"                                                      } ],
