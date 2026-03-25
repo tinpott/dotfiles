@@ -33,7 +33,7 @@ zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 # Prompt string
 
-USER_COLOR=magenta
+USER_COLOR=red
 FILL_COLOR=white
 GIT_COLOR=yellow
 if [ $(id -g) = 0 ]; then
