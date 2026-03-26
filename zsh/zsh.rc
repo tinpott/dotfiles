@@ -1,8 +1,10 @@
 # Manual configs
+
 USE_SYMBOLS=true
 SHOW_HOST=true
 
 # Env-based configs
+
 SHOW_FETCH=true
 if [[ $(printenv | grep -c "VSCODE_") -gt 0 ]]; then
 	SHOW_FETCH=false
@@ -10,7 +12,7 @@ elif [[ $(printenv | grep -c "NVIM") -gt 0 ]]; then
 	SHOW_FETCH=false
 fi
 
-### git status
+# Git status
 
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
@@ -29,17 +31,17 @@ zstyle ':vcs_info:git:*' formats       $vcs_formats
 zstyle ':vcs_info:git:*' actionformats $vcs_actionformats
 
 
-### prompt string 1
+# Prompt string
 
 USER_COLOR=magenta
 FILL_COLOR=white
 GIT_COLOR=yellow
-if [ "$USER" = "root" ]; then
+if [ $(id -g) = 0 ]; then
 	USER_COLOR=red
 fi
 
 if [[ $SHOW_HOST = true ]]; then
-	PS_USER='%B%F{'$USER_COLOR'}%n@%m%f%b'
+	PS_USER='%B%F{'$USER_COLOR'}%n%F{'$FILL_COLOR'}@%f%F{'$USER_COLOR'}%m%f%b'
 else
 	PS_USER='%B%F{'$USER_COLOR'}%n%f%b'
 fi
@@ -48,7 +50,7 @@ PS_GIT='%B%F{'$GIT_COLOR'}${vcs_info_msg_0_}%f%b'
 PS_END='%B%F{'$USER_COLOR'}%%%f%b'
 
 
-### vim mode indicator - https://dougblack.io/words/zsh-vi-mode.html
+# Vim mode indicator
 
 function zle-line-init zle-keymap-select {
 	PS_VI="%"
@@ -73,7 +75,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 
-### basic auto-complete
+# Basic auto-complete
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -81,7 +83,9 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# bash-like word selection
+
+# Bash-like word selection
+
 autoload -U select-word-style
 select-word-style bash
 
@@ -95,7 +99,8 @@ bindkey '^[[3~' delete-char
 bindkey '^R' history-incremental-search-backward
 
 
-### environment variables
+# Environment variables
+
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=less
@@ -112,7 +117,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 
-### beam-style cursor
+# Beam-style cursor
 
 #_fix_cursor() {
 #   echo -ne '\e[5 q'
@@ -120,7 +125,7 @@ setopt HIST_SAVE_NO_DUPS
 #precmd_functions+=(_fix_cursor)
 
 
-### syntax highlighting
+# Syntax highlighting
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
@@ -139,23 +144,21 @@ unset _zsh_hl_paths _zsh_hl_path
 
 # Aliases
 
-alias ls='ls --color=auto -C --group-directories-first'
-alias l='ls'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-
-alias diff='diff --color=auto'
-alias c='clear'
-alias ccat='pygmentize -g -O style=monokai'
+alias diff="diff --color=auto"
+alias c="clear"
+alias ccat="pygmentize -g -O style=monokai"
 alias g="git"
 alias ga="git add"
-alias gc="git commit"
+alias gb="git branch --list"
 alias gl="git log --oneline"
 alias gll="git log"
-alias gp="git push origin HEAD"
-alias grep='grep --color=auto'
-alias grps='groups | sed "s/ /\n/g" | sort'
+alias grep="grep --color=auto"
+alias grps="groups | sed 's/ /\n/g' | sort"
+alias ls="ls --color=auto -C --group-directories-first"
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
 alias pk9="pkill -9"
 alias py="python"
 alias v="nvim"
