@@ -142,6 +142,7 @@ alias diff='diff --color=auto'
 alias c='clear'
 alias ccat='pygmentize -g -O style=monokai'
 alias g="git"
+alias gb="git branch -vv"
 alias gl="git log --oneline"
 alias gll="git log"
 alias grep='grep --color=auto'
