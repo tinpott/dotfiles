@@ -199,7 +199,7 @@
     (
         modifiers: [
             Super,
-            Alt,
+            Ctrl,
             Shift,
         ],
         key: "l",
@@ -282,13 +282,6 @@
     ): Disable,
     (
         modifiers: [
-            Super,
-        ],
-        key: "y",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
             Ctrl,
             Shift,
         ],
