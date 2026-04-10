@@ -1,6 +1,6 @@
 {
 	"files.associations": {
-		"zsh.rc": "sh",
+		"*.rc": "shellscript",
 		"wlogout/layout": "json"
 	}
 }
