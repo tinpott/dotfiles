@@ -5,12 +5,12 @@
 	},
 	"modules": [
 		"title",
-		"separator",
+//		"separator",
 		"os",
 		"kernel",
-		"wm",
-		"cpu",
-		"gpu",
+//		"wm",
+//		"cpu",
+//		"gpu",
 		"memory",
 		"disk"
 //		"break",
