@@ -2,31 +2,29 @@
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "l",
-    ): Disable,
+        key: "period",
+    ): SwitchOutput(Right),
     (
         modifiers: [
             Super,
-            Shift,
         ],
-        key: "Escape",
-    ): Disable,
-    (
-        modifiers: [
-            Ctrl,
-        ],
-        key: "Scroll_Lock",
-    ): System(MuteMic),
+        key: "t",
+    ): ToggleWindowFloating,
     (
         modifiers: [
             Super,
             Alt,
             Shift,
         ],
-        key: "l",
+        key: "Down",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "comma",
+    ): SwitchOutput(Left),
     (
         modifiers: [
             Super,
@@ -38,8 +36,158 @@
             Super,
             Ctrl,
         ],
-        key: "h",
+        key: "k",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Escape",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "k",
+    ): Focus(Up),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "i",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "slash",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "m",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "r",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "0",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Return",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "w",
+    ): System(WorkspaceOverview),
     (
         modifiers: [
             Ctrl,
@@ -54,13 +202,54 @@
             Alt,
             Shift,
         ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
         key: "h",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "q",
+        key: "s",
+    ): ToggleStacking,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Tab",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "r",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "k",
     ): Disable,
     (
         modifiers: [
@@ -68,21 +257,28 @@
             Ctrl,
             Shift,
         ],
-        key: "Up",
+        key: "l",
     ): Disable,
+    (
+        modifiers: [
+            Ctrl,
+            Alt,
+        ],
+        key: "Delete",
+        description: Some("Open logout menu"),
+    ): Spawn("~/.scripts/logout.sh"),
     (
         modifiers: [
             Super,
             Ctrl,
-            Shift,
         ],
-        key: "Down",
+        key: "h",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "Up",
+        key: "F11",
     ): Disable,
     (
         modifiers: [
@@ -94,41 +290,14 @@
         modifiers: [
             Super,
             Ctrl,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
             Shift,
-        ],
-        key: "Tab",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
         ],
         key: "j",
     ): Disable,
     (
         modifiers: [
             Super,
-            Ctrl,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
+            Shift,
         ],
         key: "Down",
     ): Disable,
@@ -138,329 +307,28 @@
             Ctrl,
             Shift,
         ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "period",
-    ): SwitchOutput(Right),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
         key: "Down",
     ): Disable,
     (
         modifiers: [
             Super,
+            Shift,
         ],
-        key: "o",
+        key: "Right",
     ): Disable,
     (
         modifiers: [
             Super,
             Shift,
         ],
-        key: "comma",
-    ): MoveToOutput(Left),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Right",
+        key: "Left",
     ): Disable,
     (
         modifiers: [
-            Alt,
+            Super,
             Shift,
         ],
         key: "Tab",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "space",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "s",
-    ): ToggleStacking,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "r",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "0",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "f",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "u",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "F11",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "slash",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Alt,
-        ],
-        key: "Tab",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "w",
-    ): System(WorkspaceOverview),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "t",
-    ): ToggleWindowFloating,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "0",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "k",
-    ): Focus(Up),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "x",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "i",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "period",
-    ): MoveToOutput(Right),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Return",
-    ): System(Terminal),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "g",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Tab",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "equal",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "r",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "m",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Left",
     ): Disable,
     (
         modifiers: [
@@ -473,9 +341,55 @@
         modifiers: [
             Super,
             Alt,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "x",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
             Shift,
         ],
-        key: "k",
+        key: "h",
     ): Disable,
     (
         modifiers: [
@@ -488,7 +402,27 @@
             Super,
             Shift,
         ],
-        key: "Down",
+        key: "period",
+    ): MoveToOutput(Right),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "comma",
+    ): MoveToOutput(Left),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Right",
     ): Disable,
     (
         modifiers: [
@@ -496,25 +430,93 @@
             Ctrl,
             Shift,
         ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
         key: "h",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "comma",
-    ): SwitchOutput(Left),
+        key: "0",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "space",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "o",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "equal",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "Tab",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "u",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "Tab",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Right",
+    ): Disable,
 }
