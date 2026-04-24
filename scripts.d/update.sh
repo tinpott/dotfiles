@@ -19,8 +19,8 @@ print_banner() {
 print_banner "Arch repos and the AUR"
 yay --needed
 
-print_banner "Hyprland plugins"
-hyprpm update
+#print_banner "Hyprland plugins"
+#hyprpm update
 
 print_banner "flatpak"
 flatpak update
