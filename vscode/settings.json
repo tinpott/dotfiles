@@ -103,5 +103,6 @@
   "godotTools.editorPath.godot4": "godot-mono",
   "editor.wordWrap": "off",
   "workbench.secondarySideBar.showLabels": false,
-  "keyboard.dispatch": "keyCode"
+  "keyboard.dispatch": "keyCode",
+  "git.autofetch": true
 }
