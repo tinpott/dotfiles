@@ -1,12 +1,17 @@
 FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        git \
-        openssh-client \
         ca-certificates \
-        neovim \
-        less \
         curl \
+        git \
+        less \
+        neovim \
+        openssh-client \
+        ranger \
+        tmux \
+        vim \
+        wget \
+        zsh \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/ssh-seed \
