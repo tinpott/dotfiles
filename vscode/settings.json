@@ -2,7 +2,7 @@
   "liveshare.languages.allowGuestCommandControl": true,
   "terminal.integrated.defaultProfile.windows": "Ubuntu-18.04 (WSL)",
   "editor.fontSize": 11,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0.1,
   "editor.renderWhitespace": "boundary",
   "workbench.iconTheme": "material-icon-theme",
   "debug.console.fontSize": 12,
