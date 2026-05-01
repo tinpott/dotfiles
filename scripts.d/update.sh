@@ -25,3 +25,6 @@ yay --needed
 print_banner "flatpak"
 flatpak update
 
+print_banner "pip"
+pip install --upgrade pip
+
